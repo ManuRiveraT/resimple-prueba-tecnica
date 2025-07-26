@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReSimple - Prueba Tecnica </title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container py-4">
+    <h1 class="mb-4">Listado de trabajadores</h1>
+
+    <!-- Filtros -->
+    <div id="filters" class="mb-4">
+        <div class="row g-2">
+            <div class="col-md-3">
+                <label for="filterCompany" class="form-label">Empresa</label>
+                <select id="filterCompany" class="form-select" multiple></select>
+            </div>
+            <div class="col-md-3">
+                <label for="filterArea" class="form-label">&Aacute;rea</label>
+                <select id="filterArea" class="form-select" multiple></select>
+            </div>
+            <div class="col-md-3">
+                <label for="filterNameOrRut" class="form-label">Nombre o Rut</label>
+                <input type="text" id="filterNameOrRut" class="form-control" placeholder="Buscar...">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Rango de Sueldo</label>
+                <div class="input-group">
+                    <input type="number" id="minSalary" class="form-control" placeholder="M&iacute;n.">
+                    <input type="number" id="maxSalary" class="form-control" placeholder="M&aacute;x.">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tabla -->
+    <div class="table-responsive mb-4 ">
+        <table class="table table-bordered" id="dataTable">
+            <thead class="table-light">
+                <tr>
+                    <th>Nombre_Empresa</th>
+                    <th>Nombre_&Aacute;rea</th>
+                    <th>Rut_trabajador</th>
+                    <th>Nombre_trabajador</th>
+                    <th>Edad</th>
+                    <th>Profesion</th>
+                    <th>Cargo</th>
+                    <th>Sueldo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí van los datos -->
+            </tbody>
+        </table>
+        <div id="pagination" class="mb-4 text-center"></div>
+    </div>
+
+    <!-- Botón para exportar a xlsx -->
+    <button class="btn btn-success mb-4" id="exportButton">Exportar a Excel</button>
+
+    <!-- Graficos (KPIs) -->
+    <section id="kpis">
+        <h2>KPI</h2>
+        <div class="row g-3" id="kpiContent">
+            <!-- Aquí van las KPIs -->
+        </div>
+
+        <!-- Visualizacion de KPIs -->
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <canvas id="graphSalaryCompany"></canvas>
+            </div>
+            <div class="col-md-6">
+                <canvas id="graphEmployeesArea"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Librerías externas -->
+    <script src="lib/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Modulos separados -->
+    <script src="js/utils.js"></script>
+    <script src="js/dataLoader.js"></script>
+    <script src="js/table.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/kpis.js"></script>
+    <script src="js/export.js"></script>
+    <!-- Main -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
