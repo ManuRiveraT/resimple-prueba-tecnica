@@ -17,28 +17,6 @@ La aplicación permite:
   - Cantidad de trabajadores por empresa y área
 - Visualización de KPIs con gráficos usando `Chart.js` (opcional)
 
----
-## 📁 Estructura del proyecto
-
-📂 proyecto/
-├── index.html
-├── assets/
-│ ├── origen-datos-junior.xlsx
-│ └── diccionario-de-datos.json
-├── css/
-│ └── styles.css
-├── js/
-│ ├── main.js
-│ ├── dataLoader.js
-│ ├── filters.js
-│ ├── table.js
-│ ├── kpis.js
-│ ├── export.js
-│ └── utils.js
-├── lib/
-  └── xlsx.full.min.js
----
-
 ## 🚀 Cómo ejecutar el proyecto
 
 ### ✅ Requisitos
@@ -60,3 +38,25 @@ Desde la terminal, en la carpeta del proyecto:
 ```bash
 # Python 3
 python -m http.server
+```
+
+Luego abre http://localhost:8000 en tu navegador.
+
+🧪 Tecnologías usadas
+HTML, CSS, JavaScript (Vanilla)
+
+Bootstrap 5 (CDN)
+
+SheetJS (para lectura/exportación de Excel)
+
+Chart.js (visualización de KPIs)
+
+Metodología BEM en clases CSS
+
+Código comentado en español
+
+Variables y funciones en inglés
+
+📬 Autor
+Manuel Rivera
+[GitHub](https://github.com/ManuRiveraT)
