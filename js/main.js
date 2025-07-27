@@ -1,6 +1,7 @@
-let originalData = [];
+// Variables globales
+let combinedData = [];
 let rawJsonData = [];
-// Seccion de carga de datos
+
 async function loadData() {
     try {
         // Cargar Excel
@@ -9,14 +10,11 @@ async function loadData() {
         // Cargar JSON
         const jsonData = await fetch('assets/dicionario-de-datos.json').then(data => data.json());
         rawJsonData = jsonData;
+
         // Combinar datos
-        const combinedData = combineData(excelData, jsonData);
-
-        // Copia de los datos combinados para poder acceder de forma global a los datos.
         // También sirve para poder manipularlos y filtrarlos
-        originalData = combineData(excelData, jsonData);
+        combinedData = combineData(excelData, jsonData);
 
-        return combinedData
     } catch (error) {
         console.error("❌ Error al cargar datos: ", error);
     }
@@ -45,11 +43,12 @@ async function readExcelFile(filePath) {
     return data;
 }
 
-// Funcion para combinar los datos (Excel y JSON)
+// Función para combinar los datos (Excel y JSON)
 function combineData(excelData, jsonData) {
     return excelData.map(item => {
         // Se busca la empresa en el JSON usando ID_EMPRESA
         const company = jsonData.EMPRESAS.find(c => c.ID_EMPRESA === item.ID_EMPRESA);
+
         // Se busca el area en el JSON usando la empresa encontrada y el ID_AREA
         const area = company?.AREAS.find(a => a.ID_AREA === item.ID_AREA);
 
@@ -58,8 +57,8 @@ function combineData(excelData, jsonData) {
         return {
             company: company ? company.NOMBRE_EMPRESA : 'Desconocido',
             area: area ? area.NOMBRE_AREA : 'Desconocido',
-            salary: area ? area.SUELDO : 'Desconocido',
-            ...item
+            ...item,
+            salary: area ? area.SUELDO : 'Desconocido'
         }
     })
 }

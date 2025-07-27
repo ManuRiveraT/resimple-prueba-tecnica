@@ -1,6 +1,6 @@
 document.getElementById("exportButton").addEventListener("click", () => {
     // Se obtienen los datos de todas las paginas creadas
-    const exportData = paginatedData.slice((currentPage - 1 )* rowsPerPage, currentPage * rowsPerPage);
+    const exportData = paginatedData;
     // Se crea una hoja de calculo con XLSX a través del JSON
     const worksheet = XLSX.utils.json_to_sheet(exportData);
     // Se crea el workbook para posteriormente insertarle la hoja de calculo

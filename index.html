@@ -10,19 +10,24 @@
 </head>
 
 <body class="container py-4">
+
+    <!-- Nav que funciona como cabecera -->
     <nav class="d-flex justify-content-between align-items-center mb-3">
         <span class="">
-          <h1>Listado de trabajadores</h1>  
+            <h1>Listado de trabajadores</h1>
         </span>
+        <!-- Link a pagina con los KPIs -->
         <span class="text-end text-muted">
-          <a href="kpis.html" class="text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cash" viewBox="0 -2 24 24">
-  <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
-  <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2z"/>
-</svg>Ir a las KPIs</a>  
+            <a href="kpis.html" class="text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="30"
+                    height="30" fill="currentColor" class="bi bi-cash" viewBox="0 -2 24 24">
+                    <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+                    <path
+                        d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2z" />
+                </svg>Ir a las KPIs</a>
         </span>
     </nav>
-    
 
+    <!-- Botones de accion (Exportar y Limpiar) -->
     <div class="row d-flex align-items-end mb-3">
         <h5 class="col-md-4 fw-semibold">Filtros de busqueda para el listado</h5>
         <div class="col-md-8 d-flex gap-2 justify-content-end">
@@ -31,6 +36,7 @@
             <button class="btn btn-outline-secondary" id="clearFiltersButton">Limpiar filtros</button>
         </div>
     </div>
+
     <!-- Filtros -->
     <div id="filters" class="mb-2">
         <div class="card p-3 mb-4">
@@ -73,16 +79,16 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Aquí van los datos -->
+                <!-- Aquí se cargan los datos -->
             </tbody>
         </table>
-        <p id="resultCount" class="text-muted"></p>
+
     </div>
-
+    <p id="resultCount" class="text-muted"></p>
     <!-- Paginador -->
-    <div id="pagination" class="mb-4 text-center"></div>
-
-
+    <div id="pagination" class="mb-4 text-center">
+        <!-- Aquí se cargan las paginas -->
+    </div>
 
     <!-- Librerías externas -->
     <script src="lib/xlsx.full.min.js"></script>

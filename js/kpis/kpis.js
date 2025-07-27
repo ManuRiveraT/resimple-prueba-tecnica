@@ -1,6 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const combinedData = await loadData();
+    await loadData();
     // Calcular KPIs
     calculateKpis(combinedData);
 
@@ -32,9 +32,9 @@ function calculateKpis(data) {
     addKpiCard(employeesArea, "Trabajadores por Área", "👥");
 }
 
-// Funcion para sumar valores por grupo (De todas las empresas)
+// Función para sumar valores por grupo (De todas las empresas)
 function addSum(allData, data) {
-    // Se utiliza reduce para acumular los valores por grupo (acc = acumulador, item = elemento actual)
+    // Se utiliza reduce para acumular los valores por grupo (acc = acumulador, name = elemento actual)
     return allData.reduce((acc, name) => {
         acc[name] = data
         .filter(d => d.company === name || d.area === name)
@@ -43,7 +43,7 @@ function addSum(allData, data) {
     }, {})
 }
 
-// Funcion para contar elementos por grupo
+// Función para contar elementos por grupo
 function groupCount(allData , data) {
     return allData.reduce((acc, name) => {
         acc[name] = data
@@ -53,9 +53,9 @@ function groupCount(allData , data) {
     }, {})
 }
 
-// Funcion para agregar una tarjeta de KPI
+// Función para agregar una tarjeta de KPI
 function addKpiCard(value, title, icon) {
-    // Se seleccional el contenedor de KPIs
+    // Se selecciona el contenedor de KPIs
     const kpiContent = document.getElementById("kpiContent");
 
     // Se crea un container para la tarjeta

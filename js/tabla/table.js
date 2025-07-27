@@ -1,10 +1,10 @@
-// Variables para la paginación de la tabla
+// Variables globales para la paginación de la tabla
 let currentPage = 1;
 let rowsPerPage = 10;
 let paginatedData = [];
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const combinedData = await loadData();
+    await loadData();
 
     // Renderizar tabla
     renderTable(combinedData);
@@ -15,14 +15,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 function renderTable(data) {
     paginatedData = data;
+
     // Se menciona la cantidad de datos encontrados al renderizar la tabla
     document.getElementById("resultCount").textContent =
-  `${data.length} resultados encontrados`;
+    `${data.length} resultados encontrados`;
+
     // Se selecciona la tabla y se limpia su contenido
     const tableBody = document.querySelector('#dataTable tbody');
     tableBody.innerHTML = '';
 
-    // Variables para el calculo de la cantidad de datos para la pagina actual 
+    // Variables para el calculo de la cantidad de datos por pagina
     const start = (currentPage - 1) * rowsPerPage;
     const end = start + rowsPerPage;
     const pageData = paginatedData.slice(start, end);
@@ -57,6 +59,7 @@ function renderTable(data) {
 function renderPagination(totalRows){
     // Se calcula el total de paginas 
     const totalPages = Math.ceil(totalRows / rowsPerPage);
+
     // Se obtiene el elemento de la paginación 
     const container = document.getElementById('pagination');
     container.innerHTML = '';
