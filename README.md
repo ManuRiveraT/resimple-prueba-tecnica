@@ -57,6 +57,8 @@ Código comentado en español
 
 Variables y funciones en inglés
 
+📌 Esta solución fue ajustada en base a recomendaciones directas del equipo técnico de ReSimple durante la evaluación.
+
 📬 Autor
 Manuel Rivera
 [GitHub](https://github.com/ManuRiveraT)
