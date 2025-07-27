@@ -10,34 +10,55 @@
 </head>
 
 <body class="container py-4">
-    <h1 class="mb-4">Listado de trabajadores</h1>
+    <nav class="d-flex justify-content-between align-items-center mb-3">
+        <span class="">
+          <h1>Listado de trabajadores</h1>  
+        </span>
+        <span class="text-end text-muted">
+          <a href="kpis.html" class="text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cash" viewBox="0 -2 24 24">
+  <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+  <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2z"/>
+</svg>Ir a las KPIs</a>  
+        </span>
+    </nav>
+    
 
+    <div class="row d-flex align-items-end mb-3">
+        <h5 class="col-md-4 fw-semibold">Filtros de busqueda para el listado</h5>
+        <div class="col-md-8 d-flex gap-2 justify-content-end">
+            <!-- Botón para exportar a xlsx -->
+            <button class="btn btn-success" id="exportButton">Exportar a Excel</button>
+            <button class="btn btn-outline-secondary" id="clearFiltersButton">Limpiar filtros</button>
+        </div>
+    </div>
     <!-- Filtros -->
-    <div id="filters" class="mb-4">
-        <div class="row g-2">
-            <div class="col-md-3">
-                <label for="filterCompany" class="form-label">Empresa</label>
-                <select id="filterCompany" class="form-select" multiple></select>
-            </div>
-            <div class="col-md-3">
-                <label for="filterArea" class="form-label">&Aacute;rea</label>
-                <select id="filterArea" class="form-select" multiple></select>
-            </div>
-            <div class="col-md-3">
-                <label for="filterNameOrRut" class="form-label">Nombre o Rut</label>
-                <input type="text" id="filterNameOrRut" class="form-control" placeholder="Buscar...">
-            </div>
-            <div class="col-md-3">
-                <label class="form-label">Rango de Sueldo</label>
-                <div class="input-group">
-                    <input type="number" id="minSalary" class="form-control" placeholder="M&iacute;n.">
-                    <input type="number" id="maxSalary" class="form-control" placeholder="M&aacute;x.">
+    <div id="filters" class="mb-2">
+        <div class="card p-3 mb-4">
+            <div class="row g-2">
+                <div class="col-md-4">
+                    <label for="filterCompany" class="form-label">Empresa: </label>
+                    <select id="filterCompany" class="form-select" multiple></select>
+                </div>
+                <div class="col-md-4">
+                    <label for="filterArea" class="form-label">&Aacute;rea: </label>
+                    <select id="filterArea" class="form-select" multiple></select>
+                </div>
+                <div class="col-md-4">
+                    <label for="filterNameOrRut" class="form-label">Nombre o Rut: </label>
+                    <input type="text" id="filterNameOrRut" class="form-control" placeholder="Buscar...">
+
+                    <label class="form-label">Rango de Sueldo: </label>
+                    <div class="input-group">
+                        <input type="number" id="minSalary" class="form-control" placeholder="M&iacute;n." min="0">
+                        <input type="number" id="maxSalary" class="form-control" placeholder="M&aacute;x." min="0">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Tabla -->
-    <div class="table-responsive mb-4 ">
+    <div class="table-responsive">
         <table class="table table-bordered" id="dataTable">
             <thead class="table-light">
                 <tr>
@@ -55,44 +76,26 @@
                 <!-- Aquí van los datos -->
             </tbody>
         </table>
-        <div id="pagination" class="mb-4 text-center"></div>
+        <p id="resultCount" class="text-muted"></p>
     </div>
 
-    <!-- Botón para exportar a xlsx -->
-    <button class="btn btn-success mb-4" id="exportButton">Exportar a Excel</button>
+    <!-- Paginador -->
+    <div id="pagination" class="mb-4 text-center"></div>
 
-    <!-- Graficos (KPIs) -->
-    <section id="kpis">
-        <h2>KPI</h2>
-        <div class="row g-3" id="kpiContent">
-            <!-- Aquí van las KPIs -->
-        </div>
 
-        <!-- Visualizacion de KPIs -->
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <canvas id="graphSalaryCompany"></canvas>
-            </div>
-            <div class="col-md-6">
-                <canvas id="graphEmployeesArea"></canvas>
-            </div>
-        </div>
-    </section>
 
     <!-- Librerías externas -->
     <script src="lib/xlsx.full.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Modulos separados -->
-    <script src="js/utils.js"></script>
-    <script src="js/dataLoader.js"></script>
-    <script src="js/table.js"></script>
-    <script src="js/filters.js"></script>
-    <script src="js/kpis.js"></script>
-    <script src="js/export.js"></script>
+    <script src="js/tabla/utils.js"></script>
+    <script src="js/tabla/table.js"></script>
+    <script src="js/tabla/filters.js"></script>
+    <script src="js/tabla/export.js"></script>
+
     <!-- Main -->
     <script src="js/main.js"></script>
-
 </body>
 
 </html>

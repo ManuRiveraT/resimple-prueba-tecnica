@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReSimple - Prueba Tecnica</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container py-4">
+    <nav class="d-flex justify-content-between align-items-center mb-3">
+        <span class="">
+            <h1>KPIs</h1>
+        </span>
+        <span class="text-end text-muted">
+            <a href="index.html" class="text-decoration-none"><svg width="24" height="24" viewBox="0 2 24 24" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L3 9V21H21V9L12 2ZM12 4.472L19 10V19H14V13H10V19H5V10L12 4.472Z" />
+                </svg>Ir al Inicio </a>
+        </span>
+    </nav>
+    <section id="kpis">
+
+        <div class="row g-2 mb-3" id="kpiContent">
+            <!-- Aquí van las KPIs -->
+        </div>
+
+        <!-- Visualizacion de KPIs -->
+        <h2>Graficos de los KPIs</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <canvas id="graphSalaryCompany"></canvas>
+            </div>
+            <div class="col-md-6">
+                <canvas id="graphEmployeesArea"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Librerías externas -->
+    <script src="lib/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Modulos separados -->
+    <script src="js/main.js"></script>
+    <script src="js/kpis/kpis.js"></script>
+</body>
+
+</html>
